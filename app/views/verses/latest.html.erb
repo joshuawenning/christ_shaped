@@ -1,0 +1,13 @@
+<h1>Latest Verse</h1>
+
+<% if @verse.present? %>
+  <h2><%= @verse.reference %></h2>
+  <h2>Scripture</h2>
+  <p><i><%= @verse.scripture %></i></p>
+  <h3>Reflection</h3>
+  <p><%= @verse.body %></p>
+
+  <%= link_to "View archive", verses_path %>
+<% else %>
+  <p>No verses are available yet.</p>
+<% end %>

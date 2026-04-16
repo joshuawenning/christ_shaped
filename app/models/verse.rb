@@ -1,0 +1,9 @@
+class Verse < ApplicationRecord
+  def self.latest
+    order(created_at: :desc).first
+  end
+
+  def self.recent
+    order(created_at: :desc)
+  end
+end
