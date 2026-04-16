@@ -1,8 +1,6 @@
 <h1>Archive</h1>
 
 <% @verses.each do |verse| %>
- <h3>
-   <%= link_to verse.reference, verse_path(verse) %>
- </h3>
- <p><%= truncate(verse.scripture, length: 120) %></p>
+  <h3><%= link_to verse.reference, verse_path(verse) %></h3>
+  <p><%= truncate(verse.scripture, length: 120) %></p>
 <% end %>
