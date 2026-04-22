@@ -4,3 +4,5 @@
   <h3><%= link_to verse.reference, verse_path(verse) %></h3>
   <p><%= truncate(verse.scripture, length: 120) %></p>
 <% end %>
+
+<%= link_to "New Verse", new_verse_path %>
