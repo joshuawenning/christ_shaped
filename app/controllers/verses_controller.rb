@@ -25,6 +25,20 @@ class VersesController < ApplicationController
     end
   end
 
+  def edit
+    @verse = Verse.find(params[:id])
+  end
+
+  def update
+    @verse = Verse.find(params[:id])
+
+    if @verse.update(verse_params)
+      redirect_to @verse, notice: "The verse was updated successfully."
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   private
 
     def verse_params
