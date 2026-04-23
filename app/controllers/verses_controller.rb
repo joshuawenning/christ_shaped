@@ -1,5 +1,5 @@
 class VersesController < ApplicationController
-  before_action :set_verse, only: [:show, :edit, :update, :destroy]
+  before_action :set_verse, only: [ :show, :edit, :update, :destroy ]
 
   def index
     @verses = Verse.recent
