@@ -1,5 +1,6 @@
 class VersesController < ApplicationController
   before_action :set_verse, only: [ :show, :edit, :update, :destroy ]
+  before_action :require_authentication, except: [ :index, :latest, :show ]
 
   def index
     @verses = Verse.recent
