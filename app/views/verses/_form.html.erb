@@ -1,9 +1,9 @@
-<%= form_with model: @verse, local: true do |form| %>
-  <% if @verse.errors.any? %>
+<%= form_with model: verse, local: true do |form| %>
+  <% if verse.errors.any? %>
     <div>
-      <h2><%= pluralize(@verse.errors.count, "error") %> prevented saving:</h2>
+      <h2><%= pluralize(verse.errors.count, "error") %> prevented saving:</h2>
       <ul>
-        <% @verse.errors.full_messages.each do |message| %>
+        <% verse.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
