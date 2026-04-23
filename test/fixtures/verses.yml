@@ -2,10 +2,10 @@
 
 one:
   reference: MyString
-  full_text: MyText
+  scripture: MyText
   body: MyText
 
 two:
   reference: MyString
-  full_text: MyText
+  scripture: MyText
   body: MyText
