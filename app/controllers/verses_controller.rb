@@ -1,4 +1,6 @@
 class VersesController < ApplicationController
+  before_action :set_verse, only: [:show, :edit, :update, :destroy]
+
   def index
     @verses = Verse.recent
   end
@@ -8,7 +10,6 @@ class VersesController < ApplicationController
   end
 
   def show
-    @verse = Verse.find(params[:id])
   end
 
   def new
@@ -26,12 +27,9 @@ class VersesController < ApplicationController
   end
 
   def edit
-    @verse = Verse.find(params[:id])
   end
 
   def update
-    @verse = Verse.find(params[:id])
-
     if @verse.update(verse_params)
       redirect_to @verse, notice: "The verse was updated successfully."
     else
@@ -39,7 +37,15 @@ class VersesController < ApplicationController
     end
   end
 
+  def destroy
+    @verse.destroy
+    redirect_to verses_path, notice: "The verse was deleted successfully."
+  end
+
   private
+    def set_verse
+      @verse = Verse.find(params[:id])
+    end
 
     def verse_params
       params.require(:verse).permit(:reference, :scripture, :body)

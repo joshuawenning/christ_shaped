@@ -27,5 +27,6 @@
 
   <div>
     <%= form.submit verse.persisted? ? "Update Verse" : "Create Verse" %>
+   <%= link_to "Cancel", verse.persisted? ? verse_path(verse) : verses_path %>
   </div>
 <% end %>
