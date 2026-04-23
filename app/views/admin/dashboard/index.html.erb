@@ -1,0 +1,6 @@
+<h1>Admin</h1>
+
+<% if authenticated? %>
+  <%= link_to "New Verse", new_admin_verse_path %>
+  <%= link_to "View archive", verses_path %>
+<% end %>

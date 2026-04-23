@@ -5,4 +5,6 @@
   <p><%= truncate(verse.scripture, length: 120) %></p>
 <% end %>
 
-<%= link_to "New Verse", new_verse_path %>
+<% if authenticated? %>
+  <%= link_to "New Verse", new_admin_verse_path %>
+<% end %>

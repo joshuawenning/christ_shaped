@@ -6,6 +6,6 @@
 <%= link_to "View all", verses_path %>
 
 <% if authenticated? %>
-  <%= link_to "Edit", edit_verse_path(@verse) %>
-  <%= link_to "Delete", verse_path(@verse), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+  <%= link_to "Edit", edit_admin_verse_path(@verse) %>
+  <%= link_to "Delete", admin_verse_path(@verse), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
 <% end %>
