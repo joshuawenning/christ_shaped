@@ -4,6 +4,7 @@
 <h3>Reflection</h3>
 <p><%= @verse.body %></p>
 <%= link_to "View all", verses_path %>
+<%= link_to "Home", root_path %>
 
 <% if authenticated? %>
   <%= link_to "Edit", edit_admin_verse_path(@verse) %>
