@@ -16,7 +16,7 @@ class Admin::VersesController < Admin::BaseController
     @verse = Verse.new(verse_params)
 
     if @verse.save
-      redirect_to [ :admin, @verse ], notice: "Verse created."
+      redirect_to verses_path, notice: "Verse created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -27,7 +27,7 @@ class Admin::VersesController < Admin::BaseController
 
   def update
     if @verse.update(verse_params)
-      redirect_to [ :admin, @verse ], notice: "Verse updated."
+      redirect_to verse_path(@verse), notice: "Verse updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -35,7 +35,7 @@ class Admin::VersesController < Admin::BaseController
 
   def destroy
     @verse.destroy
-    redirect_to admin_verses_path, notice: "Verse deleted."
+    redirect_to verses_path, notice: "Verse deleted."
   end
 
   private
