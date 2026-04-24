@@ -1,4 +1,5 @@
 class Verse < ApplicationRecord
+  has_rich_text :body
   validates :reference, :scripture, presence: true
 
   def self.latest
