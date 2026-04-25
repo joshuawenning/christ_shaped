@@ -2,7 +2,7 @@
 <% if @verse.featured_image.attached? && @verse.featured_image_attribution.present? %>
   <p>
     <% if @verse.featured_image_attribution_link.present? %>
-      <%= link_to @verse.featured_image_attribution, @verse.featured_image_attribution_link, target: "_blank" %>
+      <%= link_to @verse.featured_image_attribution, safe_external_link(@verse.featured_image_attribution_link), target: "_blank" %>
     <% else %>
       <%= @verse.featured_image_attribution %>
     <% end %>
