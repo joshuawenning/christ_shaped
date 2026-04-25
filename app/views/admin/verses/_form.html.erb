@@ -12,22 +12,27 @@
 
   <div>
     <%= form.label :featured_image %>
-    <%= form.file_field :featured_image, accept: "image/*" %>
+    <%= form.file_field :featured_image, accept: "image/*", id: "image-upload-input" %>
+    <div id="image-preview">
+      <% if verse.featured_image.attached? %>
+        <%= image_tag verse.featured_image, alt: verse.featured_image_title %>
+      <% end %>
+    </div>
   </div>
 
   <div>
     <%= form.label :featured_image_title %><br>
-    <%= form.text_field :featured_image_title %>
+    <%= form.text_field :featured_image_title, value: verse.featured_image_title %>
   </div>
 
   <div>
     <%= form.label :featured_image_attribution %><br>
-    <%= form.text_field :featured_image_attribution %>
+    <%= form.text_field :featured_image_attribution, value: verse.featured_image_attribution %>
   </div>
 
   <div>
     <%= form.label :featured_image_attribution_link %><br>
-    <%= form.url_field :featured_image_attribution_link %>
+    <%= form.url_field :featured_image_attribution_link, value: verse.featured_image_attribution_link %>
   </div>
 
   <div>
@@ -50,3 +55,23 @@
     <%= link_to "Cancel", verse.persisted? ? verse_path(verse) : verses_path %>
   </div>
 <% end %>
+
+<script>
+  document.addEventListener("turbo:load", function() {
+    const input = document.getElementById("image-upload-input");
+    const preview = document.getElementById("image-preview");
+
+    if (input && preview) {
+      input.addEventListener("change", function(event) {
+        const file = event.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function(e) {
+            preview.innerHTML = "<img src='" + e.target.result + "' alt='Preview'>";
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+    }
+  });
+</script>
