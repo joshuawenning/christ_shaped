@@ -11,6 +11,11 @@
   <% end %>
 
   <div>
+    <%= form.label :featured_image %>
+    <%= form.file_field :featured_image, accept: "image/*" %>
+  </div>
+
+  <div>
     <%= form.label :reference %><br>
     <%= form.text_field :reference %>
   </div>

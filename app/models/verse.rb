@@ -1,4 +1,5 @@
 class Verse < ApplicationRecord
+  has_one_attached :featured_image
   has_rich_text :body
   validates :reference, :scripture, presence: true
 

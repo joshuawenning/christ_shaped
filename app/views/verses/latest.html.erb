@@ -1,6 +1,7 @@
 <h1>Latest Verse</h1>
 
 <% if @verse.present? %>
+  <%= image_tag @verse.featured_image, alt: "" if @verse.featured_image.attached? %>
   <h2><%= @verse.reference %></h2>
   <h2>Scripture</h2>
   <p><i><%= @verse.scripture %></i></p>

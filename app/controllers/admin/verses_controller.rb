@@ -44,6 +44,6 @@ class Admin::VersesController < Admin::BaseController
     end
 
     def verse_params
-      params.require(:verse).permit(:reference, :scripture, :body)
+      params.require(:verse).permit(:reference, :scripture, :body, :featured_image)
     end
 end

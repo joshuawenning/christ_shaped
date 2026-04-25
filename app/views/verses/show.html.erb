@@ -1,3 +1,4 @@
+<%= image_tag @verse.featured_image, alt: "" if @verse.featured_image.attached? %>
 <h1><%= @verse.reference %></h1>
 <h2>Scripture</h2>
 <p><i><%= @verse.scripture %></i></p>
